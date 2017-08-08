@@ -57,7 +57,7 @@ class MonacoEditor extends React.Component {
 
   afterViewInit() {
     const { requireConfig } = this.props;
-    const loaderUrl = requireConfig.url || 'vs/loader.js';
+    const loaderUrl = requireConfig.url || '/vs/loader.js';
     const context = this.props.context || window;
     const onGotAmdLoader = () => {
       if (context.__REACT_MONACO_EDITOR_LOADER_ISPENDING__) {
@@ -68,7 +68,7 @@ class MonacoEditor extends React.Component {
       }
 
       // Load monaco
-      context.require(['vs/editor/editor.main'], () => {
+      context.require(['/vs/editor/editor.main'], () => {
         this.initMonaco();
       });
 
